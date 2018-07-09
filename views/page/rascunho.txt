@@ -1,0 +1,53 @@
+
+/*
+$('#row').append(
+'<div class="col-md-3 col-sm-3 col-xs-6">'+
+    '<div class="col-md-12 col-sm-12 col-xs-12">'+
+        '<div class="x_panel" style="margin-top:10px; padding:10px; border-radius:10px; height:150; background-color:#FF3; text-align:center">'+
+            '<h4 id="userName" style="font-weight:bold"><%= userInfo.firstname+" "+userInfo.lastname %></h4>'+
+            '<img class="circle-pic" src="/images/user.png" alt="" width="120" height="100">'+
+            '<h5 id="userEndereco" style="color: #484848; font-weight:bold">data.date+" "+data.hour</h5>'+
+            '<br />'+
+            'if(data.situation == "A"){'+
+                '<h5 style="color: #000; font-weight:bold">EM ANALISE</h5>'+
+            '}else if(data.situation == "P"){'+
+                '<h5 style="color: #003689; font-weight:bold">EM PRODUÇÃO</h5>'+
+            '}else {'+
+                '<h5 style="color: #008000; font-weight:bold">ENTREGUE</h5>'+
+            '}'+
+            '<h5 style="color: #006400; font-weight:bold"></h5><%= namePag %>'+
+            'if(data.status == "S"){'+
+                '<h5 style="color: #666;">(PAGO)</h5>'+
+            '<% }else{ %>'+
+                '<h5 style="color: #666;">(NÃO PAGO)</h5>'+
+            '<% } %>'+
+            '<h5 style="color: #006400; font-weight:bold">R$ <%= data.priceTotal %></h5>'+
+            '<div class="form-group">'+
+                '<a href="../order/info-order/<%= data._id %>" class="btn btn-info"><i class="fa fa-edit"></i></a>'+
+                '<a href="../order/cancel2/<%= data._id %>" class="btn btn-danger"><i class="fa fa-trash"></i></a>'+
+                '<button type="button" class="btn" data-toggle="modal" data-target="#accpetOrder<%= data._id %>" style="background-color: #006400;">'+
+                    '<font style="color: #FFF;"><i class="fa fa-check"></i></font>'+
+                '</button>'+
+                '<div id="accpetOrder<%= data._id %>" class="modal modal-transparent fade" role="dialog" style="text-align:left;background-color:transparent; border:0">'+
+                    '<div class="modal-dialog">'+
+                        '<div class="modal-content">'+
+                            '<div class="modal-header">'+
+                                '<button type="button" class="close" data-dismiss="modal">&times;</button>'+
+                                '<h4 class="StepTitle">Aceitar item</h4/>'+
+                            '</div>'+
+                            '<div class="modal-body">'+
+                                '<h5>Deseja mesmo aceitar este pedido?</h5>'+
+                                '<br/>'+
+                                '<div class="form-group">'+
+                                    '<a class="btn btn-danger pull-right" data-dismiss="modal" >Cancelar</a>'+
+                                    '<a href="../order/accept-order/<%= data._id %>" class="btn btn-success pull-right">Aceitar</a>'+
+                                '</div>'+
+                                '<br />'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+        '</div>'+
+    '</div>'+
+'</div>');

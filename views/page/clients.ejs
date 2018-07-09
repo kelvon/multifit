@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <style>
+        .circle-pic{
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title hidden-sm hidden-xs" style="border:0; padding:0; margin:0; margin-left:0px;
+                background-color: #ff751a">
+                        <a href="./principal" class="site_title"><img src="/images/logo.jpeg" width="140" height="100" /></a>
+                    </div>
+                    
+                    <div class="navbar nav_title hidden-md  hidden-lg" style="border:0; padding:0; margin:0; margin-left:0px">
+                        <a href="./principal" class="site_title"><img src="/images/logo.jpeg" width="45" height="5"  style="margin-left:-12px" /></a>
+                    </div>
+                                            
+                    <div class="clearfix"></div>
+                    <br />
+                    
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" style="width: 230px;">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                    
+                                <li><a href="./principal"><i class="fa fa-th"></i> Dashboard</a></li>
+
+                                <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="./admin">Funcionários</a></li>
+                                        <li><a href="./clients">Clientes</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a><i class="fa fa-money"></i> Planos <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="./plans-clients">Para Clientes</a></li>
+                                        <li><a href="./plans-profissionals">Para Profissionais</a></li>
+                                    </ul>
+
+
+                                <li><a href="./exercices"><i class="fa fa-archive"></i> Exercícios</a></li>
+                                
+                                <li><a><i class="fa fa-bar-chart"></i> Marketplace <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="./products">Produtos</a></li>
+                                        <li><a href="./formas-pag">Formas de Pagamentos</a></li>
+                                        <li><a href="./order"> Pedidos</a></li>
+                                    </ul>
+                                </li>
+                    
+                                <li><a href="./order/list-accept-order"><i class="fa fa-exclamation-triangle"></i> Alertas de Pedidos<span id="badges"></span></a></li>
+                                <li><a href="./messages"><i class="fa fa-envelope-o"></i> Mensagens</a></li>
+                            </ul>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle hidden-md hidden-lg" style="color:#FFF; margin-top:9px;">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="col-lg-1 col-md-1 col-sm-2 col-xs-3 pull-right">
+                                <button type="button" style="color: #FFF; background-color:transparent; margin-top: 20px;" class="btn pull-right" data-toggle="modal" data-target="#logout">
+                                    <font style="color: #FF0;">Logout</font>
+                                </button>
+
+                                <div id="logout" class="modal modal-transparent fade" role="dialog" style="text-align:left;background-color:transparent; border:0">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="StepTitle">Logout</h4/>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5>Deseja mesmo sair?</h5>
+
+                                                <br/>
+                                                <div class="form-group">
+                                                    <a class="btn btn-info pull-right" data-dismiss="modal" >Cancelar</a>
+                                                    <a href="./logout" class="btn btn-danger pull-right">Sair</a>
+                                                </div>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pull-right">
+                                <a href="" style="text-align:right; overflow: hidden;text-overflow: ellipsis; white-space: nowrap;" class="user-profile pull-right col-lg-8 col-md-8">
+                                    <font  style="color: #FFF;"><%= JSON.parse(admin).fullname %> (Perfil)</font>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <div class="x_title">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2 col-xs-2">
+                                            <h2>Meus Clientes</h2>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10 col-xs-10">
+                                            <a href="./clients/register-client" class="btn pull-right" 
+                                            style="color:#FFF; background-color:#ff751a;">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#search">
+                                                <font style="color: #FFF;"><i class="fa fa-search"></i></font>
+                                            </button>
+            
+                                            <div id="search" class="modal modal-transparent fade" role="dialog" style="text-align:left;background-color:transparent; border:0">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="StepTitle">Pesquisar</h4/>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form id="demo-form2" data-parsley-validate
+                                                                class="form-horizontal form-label-left text-left" method="POST"
+                                                                action="./clients">
+                                                                
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome:</label>
+                                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                                        <input type="text" placeholder="Pesquisar..." 
+                                                                            class="form-control" name="pesquisa"/>
+                                                                    </div>
+                                                                    <br /><br />
+                                                                </div>
+            
+                                                                <br/>
+                                                                <div class="form-group">
+                                                                    <a class="btn btn-danger pull-right" data-dismiss="modal" >Cancelar</a>
+                                                                    <input type="submit" class="btn btn-info pull-right" value="Pesquisar" />
+                                                                </div>
+                                                            <br />
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <% for(var i = 0; i < users.length; i++){ %>
+                                        <div class="col-md-3 col-sm-3 col-xs-6">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="x_panel" style="margin-top:10px; padding:10px; border-radius:10px; height:150; 
+                                                background-color:#FF3; text-align:center">
+                                                    <h4 id="userName" style="font-weight:bold"><%= users[i].firstname +" "+ users[i].lastname %></h4>
+                                                    <img class="circle-pic" src="/images/user.png" alt="" width="100" height="100">
+                                                    <h5 id="userEndereco" style="color: #484848; font-weight:bold"><%= users[i].endereco +" ,"+
+                                                         users[i].complemento +". "+users[i].bairro +", "+ users[i].cidade %></h5>
+                                                    <div class="form-group">
+                                                        <a href="./clients/edit-client/<%= users[i]._id %>" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                                        <a href="./clients/delete/<%= users[i]._id %>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <footer class="navbar navbar-default navbar-fixed-bottom">
+        <br />
+        <% include ../partials/footer %>
+    </footer>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/custom.min.js"></script>
+    <script src="/js/jquery-1.7.2.min.js"></script>
+    <script src="/js/scriptClients.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="/js/push.min.js"></script>
+    <script type="text/javascript">
+        var socket = io();
+        socket.on('order',function(data){
+            console.log(data);
+            getCountOrder();
+
+            Push.create('Pedidos', { 
+                body : 'Você tem novos pedidos',
+                timeout: 5000,
+                onClick: function(){
+                    console.log('Clicked');
+                }
+            });
+        });
+
+        function getCountOrder(){
+            $.ajax({
+                type: 'GET',
+                url:  'http://192.168.1.4:1234/order/getAcceptOrder',
+                success: function(result){
+                    var dados = result.count;
+                    var count = dados;
+                    
+                    if(count > 0){
+                        var y = document.getElementById("badges");
+                        y.className = "badge";
+                        
+                        $("#badges").empty();
+                        $("#badges").append(count);
+                    }else{
+                        var y = document.getElementById("badges");
+                        y.className = "";
+                        
+                        $("#badges").empty();
+                    }
+                    
+                }
+            });
+        }
+    </script>
+</body>
+</html>

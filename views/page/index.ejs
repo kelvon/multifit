@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="login" style="background-color:#FFF;">
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <div class="col-lg-12">
+                        <center><h1><img src="/images/logo.jpeg" width="205" height="85" /></h1></center>
+                    </div>
+                    <form method="post" action="./login">
+                        <!--<h1>Entrar</h1>-->
+                        <div>
+                            <input type="text" class="form-control" name="email" placeholder="Login" required=""/>
+                        </div>
+                        <div>
+                            <input type="password" class="form-control" name="senha" placeholder="Senha" required="" />
+                        </div>
+                        <div>
+                            <a class="reset_pass" href="#">Esqueceu sua senha?</a>
+                            <input class="btn submit" style="background-color:#ff751a; color:#FFF" type="submit" name="submit" value="Entrar" >
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <br />
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
